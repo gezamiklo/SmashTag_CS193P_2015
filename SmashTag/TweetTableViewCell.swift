@@ -26,11 +26,27 @@ class TweetTableViewCell: UITableViewCell {
         userImage?.image = nil
         
         if let tweet = self.tweet {
-            tweetTextLabel?.text = tweet.text
+            var tweetText = tweet.text
             
             for _ in tweet.media {
-                tweetTextLabel.text! += " 📷"
+                tweetText += " 📷"
             }
+            
+            var attributedText = NSMutableAttributedString(string: tweetText)
+            
+            let keywordAttributes = [NSForegroundColorAttributeName: UIColor.blueColor(), NSBackgroundColorAttributeName: UIColor.yellowColor(), NSUnderlineStyleAttributeName: 1]
+            
+            for hashTag in tweet.hashtags {
+                attributedText.addAttributes(keywordAttributes, range: hashTag.nsrange)
+            }
+            
+            let userAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSBackgroundColorAttributeName: UIColor.blueColor(), NSUnderlineStyleAttributeName: 0]
+            
+            for userTag in tweet.userMentions {
+                attributedText.addAttributes(userAttributes, range: userTag.nsrange)
+            }
+
+            tweetTextLabel.attributedText = attributedText
             
             userScreenNameLabel?.text = tweet.user.screenName
             if let profileImageURL = tweet.user.profileImageURL {

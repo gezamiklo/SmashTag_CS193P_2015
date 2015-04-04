@@ -124,15 +124,20 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        if segue.identifier == "Show tweet" {
+            if let destVC = segue.destinationViewController as? TweetDetailTableViewController {
+                if let indexPath = tableView.indexPathForSelectedRow() {
+                    destVC.tweet = tweets[indexPath.section][indexPath.row]
+                }
+            }
+        }
     }
-    */
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if textField == searchTextField {

@@ -18,6 +18,10 @@
 		E644839E1AC9CC7E00A40EB3 /* MediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E644839A1AC9CC7E00A40EB3 /* MediaItem.swift */; };
 		E644839F1AC9CC7E00A40EB3 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E644839B1AC9CC7E00A40EB3 /* Tweet.swift */; };
 		E64483A21AC9DEEF00A40EB3 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64483A11AC9DEEF00A40EB3 /* TweetTableViewCell.swift */; };
+		E6827F2B1AD0206F00CB31AF /* TweetDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6827F2A1AD0206F00CB31AF /* TweetDetailTableViewController.swift */; };
+		E6827F2D1AD0218A00CB31AF /* TweetTextualDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6827F2C1AD0218A00CB31AF /* TweetTextualDetailTableViewCell.swift */; };
+		E6827F2F1AD021A800CB31AF /* TweetDetailSectionHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6827F2E1AD021A800CB31AF /* TweetDetailSectionHeaderTableViewCell.swift */; };
+		E6827F311AD021B800CB31AF /* TweetImageDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6827F301AD021B800CB31AF /* TweetImageDetailTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +50,10 @@
 		E644839A1AC9CC7E00A40EB3 /* MediaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaItem.swift; sourceTree = "<group>"; };
 		E644839B1AC9CC7E00A40EB3 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		E64483A11AC9DEEF00A40EB3 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
+		E6827F2A1AD0206F00CB31AF /* TweetDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetailTableViewController.swift; sourceTree = "<group>"; };
+		E6827F2C1AD0218A00CB31AF /* TweetTextualDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTextualDetailTableViewCell.swift; sourceTree = "<group>"; };
+		E6827F2E1AD021A800CB31AF /* TweetDetailSectionHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetailSectionHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		E6827F301AD021B800CB31AF /* TweetImageDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetImageDetailTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +100,10 @@
 				E64483A11AC9DEEF00A40EB3 /* TweetTableViewCell.swift */,
 				E64483941AC9CBA000A40EB3 /* TweetTableViewController.swift */,
 				E64483701AC9CAC600A40EB3 /* Supporting Files */,
+				E6827F2A1AD0206F00CB31AF /* TweetDetailTableViewController.swift */,
+				E6827F2C1AD0218A00CB31AF /* TweetTextualDetailTableViewCell.swift */,
+				E6827F2E1AD021A800CB31AF /* TweetDetailSectionHeaderTableViewCell.swift */,
+				E6827F301AD021B800CB31AF /* TweetImageDetailTableViewCell.swift */,
 			);
 			path = SmashTag;
 			sourceTree = "<group>";
@@ -237,9 +249,13 @@
 			files = (
 				E644839D1AC9CC7E00A40EB3 /* User.swift in Sources */,
 				E64483731AC9CAC600A40EB3 /* AppDelegate.swift in Sources */,
+				E6827F2B1AD0206F00CB31AF /* TweetDetailTableViewController.swift in Sources */,
 				E644839E1AC9CC7E00A40EB3 /* MediaItem.swift in Sources */,
 				E644839F1AC9CC7E00A40EB3 /* Tweet.swift in Sources */,
+				E6827F2F1AD021A800CB31AF /* TweetDetailSectionHeaderTableViewCell.swift in Sources */,
+				E6827F311AD021B800CB31AF /* TweetImageDetailTableViewCell.swift in Sources */,
 				E64483951AC9CBA000A40EB3 /* TweetTableViewController.swift in Sources */,
+				E6827F2D1AD0218A00CB31AF /* TweetTextualDetailTableViewCell.swift in Sources */,
 				E644839C1AC9CC7E00A40EB3 /* TwitterRequest.swift in Sources */,
 				E64483A21AC9DEEF00A40EB3 /* TweetTableViewCell.swift in Sources */,
 			);
@@ -435,6 +451,7 @@
 				E644838E1AC9CAC600A40EB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E644838F1AC9CAC600A40EB3 /* Build configuration list for PBXNativeTarget "SmashTagTests" */ = {
 			isa = XCConfigurationList;
@@ -443,6 +460,7 @@
 				E64483911AC9CAC600A40EB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
