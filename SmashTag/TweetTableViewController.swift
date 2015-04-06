@@ -29,6 +29,8 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
         didSet {
             lastSuccessFulRequest = nil
             tweets.removeAll()
+            searchTextField.text = searchText
+            title = "Tweets: \(searchText!)"
             tableView.reloadData()
             refresh()
         }
@@ -44,6 +46,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
     
     private struct StoryBoard {
         static let tweetCellReuseID = "Tweet Cell"
+        static let tweetShowDetailSegueId = "Show tweet"
     }
     
     // MARK: View Controller lifecycle
@@ -130,7 +133,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
-        if segue.identifier == "Show tweet" {
+        if segue.identifier == StoryBoard.tweetShowDetailSegueId {
             if let destVC = segue.destinationViewController as? TweetDetailTableViewController {
                 if let indexPath = tableView.indexPathForSelectedRow() {
                     destVC.tweet = tweets[indexPath.section][indexPath.row]
@@ -177,4 +180,21 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
 
+    @IBAction func goBackWithUser(segue: UIStoryboardSegue) {
+        println("With user")
+        if let sourceVc = segue.sourceViewController as? TweetDetailTableViewController {
+            if let selectedIndexPath = sourceVc.tableView.indexPathForSelectedRow() {
+                searchText = sourceVc.tweet?.userMentions[selectedIndexPath.row].keyword
+            }
+        }
+    }
+    
+    @IBAction func goBackWithHashTag(segue: UIStoryboardSegue) {
+        println("Came back \(segue.identifier) \(segue.sourceViewController)")
+        if let sourceVc = segue.sourceViewController as? TweetDetailTableViewController {
+            if let selectedIndexPath = sourceVc.tableView.indexPathForSelectedRow() {
+                searchText = sourceVc.tweet?.hashtags[selectedIndexPath.row].keyword
+            }
+        }
+    }
 }

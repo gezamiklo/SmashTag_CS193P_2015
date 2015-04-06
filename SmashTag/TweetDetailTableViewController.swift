@@ -13,6 +13,8 @@ class TweetDetailTableViewController: UITableViewController, UITableViewDelegate
     private struct StoryBoard {
         static let sectionHeaderId = "TweetDetailSectionHeader"
         static let textualDetailId = "TweetTextualDetail"
+        static let userDetailId = "TweetUserDetail"
+        static let urlDetailId = "TweetUrlDetail"
         static let imageDetailId = "TweetImageDetail"
     }
     
@@ -70,6 +72,12 @@ class TweetDetailTableViewController: UITableViewController, UITableViewDelegate
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCellWithIdentifier(StoryBoard.sectionHeaderId) as TweetDetailSectionHeaderTableViewCell
         cell.headerLabel.text = tweetSections[section]
+        if tableView.numberOfRowsInSection(section) > 0 {
+            cell.hidden = false
+        } else {
+            cell.hidden = true
+        }
+
         return cell
     }
 
@@ -81,7 +89,7 @@ class TweetDetailTableViewController: UITableViewController, UITableViewDelegate
                 return cell
             
             case 1:
-                let cell = tableView.dequeueReusableCellWithIdentifier(StoryBoard.textualDetailId, forIndexPath: indexPath) as TweetTextualDetailTableViewCell
+                let cell = tableView.dequeueReusableCellWithIdentifier(StoryBoard.userDetailId, forIndexPath: indexPath) as TweetTextualDetailTableViewCell
                 cell.textLabel?.text = tweet?.userMentions[indexPath.row].keyword
                 return cell
             
@@ -95,7 +103,7 @@ class TweetDetailTableViewController: UITableViewController, UITableViewDelegate
                 return cell
             
             case 3:
-                let cell = tableView.dequeueReusableCellWithIdentifier(StoryBoard.textualDetailId, forIndexPath: indexPath) as TweetTextualDetailTableViewCell
+                let cell = tableView.dequeueReusableCellWithIdentifier(StoryBoard.urlDetailId, forIndexPath: indexPath) as TweetUrlDetailTableViewCell
                 cell.textLabel?.text = tweet?.urls[indexPath.row].keyword
                 return cell
             
@@ -116,6 +124,7 @@ class TweetDetailTableViewController: UITableViewController, UITableViewDelegate
         
         return UITableViewAutomaticDimension
     }
+    
     
     /*
     // Override to support conditional editing of the table view.
